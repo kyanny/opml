@@ -1,6 +1,7 @@
-require File.expand_path(File.dirname(__FILE__) + "/../lib/opml")
+require 'spec_helper'
+require 'opml'
 
-describe "a sample OPML file", :shared => true do
+shared_examples "a sample OPML file" do
 
   it "should have the owner of the document" do
     @opml.owner_name.should == "Dave Winer"
@@ -12,7 +13,7 @@ describe "a sample OPML file", :shared => true do
 
 end
 
-describe "an empty OPML file", :shared => true do
+shared_examples "an empty OPML file" do
 
   it "should have no title" do
     @opml.title.should be_nil
