@@ -1,7 +1,7 @@
 require 'rexml/document'
 
 require 'rubygems'
-require 'active_support'
+require 'active_support/all'
 
 class Opml
   module VERSION #:nodoc:
@@ -39,7 +39,7 @@ class Opml
 
     private
       def map_attributes_to_hash(attributes)
-        returning({}) do |hash|
+        {}.tap do |hash|
           attributes.each { |key, value| hash[key.underscore] = value }
         end
       end
