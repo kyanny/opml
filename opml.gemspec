@@ -5,7 +5,7 @@ require 'opml/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "opml"
-  spec.version       = Opml::VERSION
+  spec.version       = Opml::VERSION::STRING
   spec.authors       = ["Joshua Peek"]
   spec.email         = ["josh@joshpeek.com"]
   spec.description   = %q{A simple wrapper for parsing OPML files.}
