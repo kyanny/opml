@@ -14,7 +14,7 @@ class Opml
     end
 
     def flatten
-      @flatten ||= @outlines.map(&:flatten).unshift(self)
+      @flatten ||= @outlines.map(&:flatten).flatten.unshift(self)
     end
 
     def to_s
