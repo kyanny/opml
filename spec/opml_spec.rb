@@ -158,6 +158,16 @@ describe Opml, "empty file" do
 
 end
 
+describe Opml, "incorrect date" do
+
+  before do
+    @opml = Opml.new("<opml><head><dateCreated>1372185524793</dateCreated></head><body></body></opml>")
+  end
+
+  it_should_behave_like "an empty OPML file"
+
+end
+
 describe Opml::Outline, "in playlist" do
 
   before do

@@ -44,7 +44,13 @@ class Opml
     @doc = REXML::Document.new(xml)
 
     parse_head_elements :title, :owner_name, :owner_email
-    parse_head_elements :date_created, :date_modified, :with => Proc.new { |e| Time.parse(e) }
+    parse_head_elements :date_created, :date_modified, :with => Proc.new { |e|
+      begin
+        Time.parse(e)
+      rescue ArgumentError
+        nil
+      end
+    }
 
     @outlines = document_body ? initialize_outlines_from_document_body : []
   end
